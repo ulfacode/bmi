@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:bmi/constants/constant.dart';
@@ -15,6 +16,13 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
   int height = 100;
   int weight = 50;
   int age = 20;
+
+  double calculateBmi() {
+    double heightInMeter = height / 100;
+    double bmi = weight / pow(heightInMeter, 2);
+
+    return bmi;
+  }
 
   @override
   Widget build(BuildContext context) {
