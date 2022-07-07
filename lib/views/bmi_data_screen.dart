@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'dart:ui';
 
 import 'package:bmi/constants/constant.dart';
 import 'package:bmi/views/bmi_result_screen.dart';
@@ -47,7 +46,8 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                   child: BmiCard(
                     borderColor:
                         (gender == "male") ? Colors.white : primaryColor,
-                    child: GenderIconText(title: 'Male', icon: Icons.male),
+                    child:
+                        const GenderIconText(title: 'Male', icon: Icons.male),
                   ),
                 )),
                 Expanded(
@@ -59,8 +59,8 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                     child: BmiCard(
                       borderColor:
                           (gender == "female") ? Colors.white : primaryColor,
-                      child:
-                          GenderIconText(title: 'Female', icon: Icons.female),
+                      child: const GenderIconText(
+                          title: 'Female', icon: Icons.female),
                     ),
                   ),
                 ),
@@ -234,7 +234,7 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
           ),
           GestureDetector(
             onTap: () {
-              print(calculateBmi());
+              calculateBmi();
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: ((context) {
@@ -249,10 +249,10 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
               margin: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Color(0xffEC3C66),
+                color: const Color(0xffEC3C66),
               ),
               height: 80,
-              child: Center(
+              child: const Center(
                 child: Text(
                   "Hitung BMI",
                   style: TextStyle(

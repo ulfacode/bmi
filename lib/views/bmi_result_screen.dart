@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:bmi/constants/constant.dart';
 import 'package:bmi/views/bmi_data_screen.dart';
 import 'package:flutter/material.dart';
@@ -65,11 +63,11 @@ class BmiResultScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hasil Hitung BMI"),
+        title: const Text("Hasil Hitung BMI"),
       ),
       body: Column(
         children: [
-          Expanded(
+          const Expanded(
             child: Center(
               child: Text(
                 "Hasil Perhitungan",
@@ -92,15 +90,15 @@ class BmiResultScreen extends StatelessWidget {
                   children: [
                     Text(
                       bmiCategory,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
                     ),
                     Text(
-                      "${bmi.toStringAsFixed(1)}",
-                      style: TextStyle(
+                      bmi.toStringAsFixed(1),
+                      style: const TextStyle(
                         fontSize: 100,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
@@ -109,7 +107,7 @@ class BmiResultScreen extends StatelessWidget {
                     Text(
                       bmiDesc,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 15,
                         color: Colors.white,
                       ),
@@ -127,10 +125,10 @@ class BmiResultScreen extends StatelessWidget {
               margin: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Color(0xffEC3C66),
+                color: const Color(0xffEC3C66),
               ),
               height: 80,
-              child: Center(
+              child: const Center(
                 child: Text(
                   "Hitung Ulang",
                   style: TextStyle(
