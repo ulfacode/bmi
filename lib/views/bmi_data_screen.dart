@@ -19,7 +19,8 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
 
   double calculateBmi() {
     double heightInMeter = height / 100;
-    double bmi = weight / pow(heightInMeter, 2);
+    final bmi = weight / pow(heightInMeter, 2);
+    // final bmi = weight / (heightInMeter * heightInMeter);
 
     return bmi;
   }
@@ -215,10 +216,13 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
           ),
           GestureDetector(
             onTap: () {
+              print(calculateBmi());
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: ((context) {
-                    return const BmiResultScreen();
+                    return BmiResultScreen(
+                      bmi: calculateBmi(),
+                    );
                   }),
                 ),
               );
