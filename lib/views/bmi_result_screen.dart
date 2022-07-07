@@ -36,11 +36,7 @@ class BmiResultScreen extends StatelessWidget {
     String desc = "";
     switch (categoryName) {
       case underweightSevere:
-        desc = "Possible nutritional definciency and osteoporosis.";
-        break;
       case underweightModerate:
-        desc = "Possible nutritional definciency and osteoporosis.";
-        break;
       case underweightMild:
         desc = "Possible nutritional definciency and osteoporosis.";
         break;
@@ -52,13 +48,7 @@ class BmiResultScreen extends StatelessWidget {
             "Moderate risk of developing heart disease, high blood pressure, stroke, diabetes mellitus.";
         break;
       case obeseI:
-        desc =
-            "High risk of developing heart disease, high blood pressure, stroke, diabetes mellitus. Metabolic Syndrome.";
-        break;
       case obeseII:
-        desc =
-            "High risk of developing heart disease, high blood pressure, stroke, diabetes mellitus. Metabolic Syndrome.";
-        break;
       case obeseIII:
         desc =
             "High risk of developing heart disease, high blood pressure, stroke, diabetes mellitus. Metabolic Syndrome.";

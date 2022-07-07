@@ -12,7 +12,7 @@ TextStyle numberTextStyle = const TextStyle(
 );
 
 const String underweightSevere = "Underweight (Severe thinness)";
-const String underweightModerate = "Underweight (Severe thinness)";
+const String underweightModerate = "Underweight (Moderate thinness)";
 const String underweightMild = "Underweight (Mild thinness)";
 const String normal = "Normal";
 const String overWeight = "Overweight";
