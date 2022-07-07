@@ -23,32 +23,32 @@ class BmiCalculator {
     return bmi!;
   }
 
-  String determineBmiCategory(double bmiValue) {
+  String determineBmiCategory() {
     String category = "";
-    if (bmiValue < 16) {
+    if (bmi! < 16) {
       category = underweightSevere;
-    } else if (bmiValue < 17) {
+    } else if (bmi! < 17) {
       category = underweightModerate;
-    } else if (bmiValue < 18) {
+    } else if (bmi! < 18) {
       category = underweightMild;
-    } else if (bmiValue < 25) {
+    } else if (bmi! < 25) {
       category = normal;
-    } else if (bmiValue < 30) {
+    } else if (bmi! < 30) {
       category = overWeight;
-    } else if (bmiValue < 35) {
+    } else if (bmi! < 35) {
       category = obeseI;
-    } else if (bmiValue < 40) {
+    } else if (bmi! < 40) {
       category = obeseII;
-    } else if (bmiValue >= 40) {
+    } else if (bmi! >= 40) {
       category = obeseIII;
     }
     bmiCategory = category;
     return bmiCategory!;
   }
 
-  String getHealRiskDescription(String categoryName) {
+  String getHealRiskDescription() {
     String desc = "";
-    switch (categoryName) {
+    switch (bmiCategory) {
       case underweightSevere:
       case underweightModerate:
       case underweightMild:
