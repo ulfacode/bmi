@@ -9,31 +9,70 @@ class BmiResultScreen extends StatelessWidget {
 
   final double bmi;
 
-  determineBmiCategory(double bmiValue) {
+  String determineBmiCategory(double bmiValue) {
     String category = "";
-    if (bmiValue < 16.0) {
+    if (bmiValue < 16) {
       category = underweightSevere;
-    } else if (bmiValue >= 16.0 && bmiValue < 17.0) {
+    } else if (bmiValue < 17) {
       category = underweightModerate;
-    } else if (bmiValue >= 17.0 && bmiValue < 18.5) {
+    } else if (bmiValue < 18) {
       category = underweightMild;
-    } else if (bmiValue >= 18.5 && bmiValue < 25.0) {
+    } else if (bmiValue < 25) {
       category = normal;
-    } else if (bmiValue >= 25.0 && bmiValue < 30.0) {
+    } else if (bmiValue < 30) {
       category = overWeight;
-    } else if (bmiValue >= 30.0 && bmiValue < 35.0) {
+    } else if (bmiValue < 35) {
       category = obeseI;
-    } else if (bmiValue >= 35.0 && bmiValue < 40.0) {
+    } else if (bmiValue < 40) {
       category = obeseII;
-    } else if (bmiValue >= 40.0) {
+    } else if (bmiValue >= 40) {
       category = obeseIII;
     }
 
     return category;
   }
 
+  String getHealRiskDescription(String categoryName) {
+    String desc = "";
+    switch (categoryName) {
+      case underweightSevere:
+        desc = "Possible nutritional definciency and osteoporosis.";
+        break;
+      case underweightModerate:
+        desc = "Possible nutritional definciency and osteoporosis.";
+        break;
+      case underweightMild:
+        desc = "Possible nutritional definciency and osteoporosis.";
+        break;
+      case normal:
+        desc = "Low risk (healthy range).";
+        break;
+      case overWeight:
+        desc =
+            "Moderate risk of developing heart disease, high blood pressure, stroke, diabetes mellitus.";
+        break;
+      case obeseI:
+        desc =
+            "High risk of developing heart disease, high blood pressure, stroke, diabetes mellitus. Metabolic Syndrome.";
+        break;
+      case obeseII:
+        desc =
+            "High risk of developing heart disease, high blood pressure, stroke, diabetes mellitus. Metabolic Syndrome.";
+        break;
+      case obeseIII:
+        desc =
+            "High risk of developing heart disease, high blood pressure, stroke, diabetes mellitus. Metabolic Syndrome.";
+        break;
+      default:
+    }
+    return desc;
+  }
+
   @override
   Widget build(BuildContext context) {
+    final bmiCategory = determineBmiCategory(bmi);
+    final bmiDesc = getHealRiskDescription(bmiCategory);
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Hasil Hitung BMI"),
@@ -56,12 +95,13 @@ class BmiResultScreen extends StatelessWidget {
             flex: 5,
             child: BmiCard(
               child: Container(
+                width: double.infinity,
                 padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
-                      determineBmiCategory(bmi),
+                      bmiCategory,
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -77,7 +117,7 @@ class BmiResultScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "Your BMI result is quite low, you should eat more",
+                      bmiDesc,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15,
