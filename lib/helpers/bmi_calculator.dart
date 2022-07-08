@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:bmi/constants/constant.dart';
 
 class BmiCalculator {
