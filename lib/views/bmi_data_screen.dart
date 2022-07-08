@@ -77,46 +77,58 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
               ],
             ),
           ),
-          BmiCard(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "HEIGHT",
-                  style: labelTextStyle!.copyWith(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+          Column(
+            children: [
+              Text(
+                "HEIGHT",
+                style: weightAgeTextStyle!.copyWith(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: BmiCard(
+                      child: Slider(
+                        value: height.toDouble(),
+                        min: 80,
+                        max: 200,
+                        // thumbColor: Colors.red,
+                        thumbColor: Color.fromARGB(255, 103, 4, 121),
+                        activeColor: Colors.white,
+                        onChanged: (value) {
+                          height = value.toInt();
+                          setState(() {});
+                        },
+                      ),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 12),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text(
-                      "$height",
-                      style: numberTextStyle,
+                  BmiCard(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 15.0,
+                        vertical: 9,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "$height",
+                            style: numberTextStyle,
+                          ),
+                          Text(
+                            " cm",
+                            style: labelTextStyle,
+                          ),
+                        ],
+                      ),
                     ),
-                    Text(
-                      "cm",
-                      style: labelTextStyle,
-                    ),
-                  ],
-                ),
-                Slider(
-                  value: height.toDouble(),
-                  min: 80,
-                  max: 200,
-                  // thumbColor: Colors.red,
-                  thumbColor: Color.fromARGB(255, 103, 4, 121),
-                  activeColor: Colors.white,
-                  onChanged: (value) {
-                    height = value.toInt();
-                    setState(() {});
-                  },
-                )
-              ],
-            ),
+                  ),
+                ],
+              ),
+            ],
           ),
           Container(
             child: Row(
@@ -202,7 +214,7 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                   child: Column(
                     children: [
                       Text(
-                        "Age",
+                        "AGE",
                         style: weightAgeTextStyle,
                       ),
                       BmiCard(
